@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💜</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+font-family:Segoe UI,sans-serif;
+background:linear-gradient(135deg,#6d28d9,#a855f7,#f3e8ff);
+}
+.card{
+width:90%;
+max-width:650px;
+padding:30px;
+border-radius:20px;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(10px);
+text-align:center;
+color:white;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+z-index:2;
+}
+h1{margin-bottom:20px;}
+p{font-size:18px;line-height:1.8;}
+.flower{
+position:absolute;
+top:-50px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+0%{transform:translateY(-50px) rotate(0);}
+100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>💜 For You 💜</h1>
+
+<p>
+No matter what happens, I'll never leave your side.<br><br>
+
+I know life isn't always easy, but you don't have to face everything alone.<br><br>
+
+Keep smiling, keep believing, and never lose hope. Better days are coming.<br><br>
+
+<b>Cheer up, okay? 💜🪻</b>
+</p>
+
+</div>
+
+<script>
+const flowers=["🪻","🌸","💜"];
+
+function createFlower(){
+const flower=document.createElement("div");
+flower.className="flower";
+flower.innerHTML=flowers[Math.floor(Math.random()*flowers.length)];
+flower.style.left=Math.random()*100+"vw";
+flower.style.fontSize=(25+Math.random()*20)+"px";
+flower.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(flower);
+setTimeout(()=>flower.remove(),8000);
+}
+setInterval(createFlower,180);
+</script>
+
+</body>
+</html>
